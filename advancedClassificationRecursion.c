@@ -1,33 +1,37 @@
 #include "NumClass.h"
 
-int numOfNumInX(int x)
+int numOfNumInX(int num)
 {
     int c = 0;
-    while(x>0) 
+    while(num > 0) 
     {
-        x = x/10;
+        num = num / 10;
         c += 1;
     }
     return c;
 }
 
-int countArmstrong(int x, int reminder, int inX)
+int countArmstrong(int num, int reminder, int inX)
 {
     int sum = 0;
     if(inX - reminder <= 0) return 0;
-    sum = powe(x%10, inX);
-    return sum + countArmstrong(x/10, reminder+1, inX);
+    sum = powe(num % 10, inX);
+    return sum + countArmstrong(num / 10, reminder+1, inX);
 }
 
-int isArmstrong(int x)
+int isArmstrong(int num)
 {
-    int sum = countArmstrong(x, 0, numOfNumInX(x));
-    if(x == sum) return 1;
+    if(num < 0)
+    {
+        return 0;
+    }
+    int sum = countArmstrong(num, 0, numOfNumInX(num));
+    if(num == sum) return 1;
     return 0;
 }
 
 
-int checkPalindrome(int x, int fDigit, int lDigit, int len)
+int checkPalindrome(int num, int fDigit, int lDigit, int len)
 {
     if(len == 1) return 1;
     if(len == 2)
@@ -36,15 +40,23 @@ int checkPalindrome(int x, int fDigit, int lDigit, int len)
         return 0;
     }
     int temp = powe(10, len - 2);
-    int currentNum = x/10;
+    int currentNum = num / 10;
     currentNum = currentNum % temp;
     int current = 0;
     if(fDigit == lDigit) current = 1;
-    return checkPalindrome(currentNum, currentNum/(temp/10) , currentNum%10, len-2)*current;
+    return checkPalindrome(currentNum, currentNum / (temp/10) , currentNum % 10, len-2) * (current);
 }
 
-int isPalindrome(int x)
+int isPalindrome(int num)
 {
-    int len = numOfNumInX(x);
-    return checkPalindrome(x, x/(powe(10, len - 1)), x%10, len);
+    if(num < 0)
+    {
+        return 0;
+    }
+    if(num == 0)
+    {
+        return 1;
+    }
+    int len = numOfNumInX(num);
+    return checkPalindrome(num, num / (powe(10, len - 1)), num % 10, len);
 }

@@ -3,41 +3,53 @@
 int numOfNumInX(int x)
 {
     int c = 0;
-    while(x>0) 
+    while(x > 0) 
     {
-        x = x/10;
+        x = x / 10;
         c += 1;
     }
     return c;
 }
 
-int isArmstrong(int x)
+int isArmstrong(int num)
 {
-    int power = numOfNumInX(x);
-    int temp = x;
+    if(num < 0)
+    {
+        return 0;
+    }
+    int power = numOfNumInX(num);
+    int temp = num;
     int sum = 0;
     while(temp > 0)
     {
-        sum += powe(temp%10, power);
-        temp = temp/10;
+        sum += powe(temp % 10, power);
+        temp = temp / 10;
     }
-    if(sum == x)
+    if(sum == num)
     {
         return 1;
     }
     return 0;
 }
 
-int isPalindrome(int x)
+int isPalindrome(int num)
 {
-    int arrLength = numOfNumInX(x);
-    int xToArray[arrLength];
-    for(int i= 0 ; i<arrLength ;i++)
+    if(num < 0)
     {
-        xToArray[i] = x % 10;
-        x = x/10;
+        return 0;
     }
-    for(int i = 0; i< arrLength/2;i++)
+    if(num == 0)
+    {
+        return 1;
+    }
+    int arrLength = numOfNumInX(num);
+    int xToArray[arrLength];
+    for(int i = 0 ; i < arrLength ;i++)
+    {
+        xToArray[i] = num % 10;
+        num = num / 10;
+    }
+    for(int i = 0; i < arrLength / 2 ; i++)
     {
         if(xToArray[i] != xToArray[arrLength-1-i])
         {

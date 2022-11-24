@@ -15,29 +15,33 @@ int factorial(int f){
     return f*factorial(f-1);
 }
 
-int isStrong(int n){
-    int currentDigit,temp;
-    temp = n;
-    currentDigit = n%10;
-    int sum=0;
-    while(temp>0){
-        sum= sum+factorial(currentDigit);
-        temp = temp/10;
-        currentDigit = temp%10;
+int isStrong(int num){
+    if(num <= 0)
+    {
+        return 0;
     }
-    if(sum == n)
+    int currentDigit, temp;
+    temp = num;
+    currentDigit = num%10;
+    int sum = 0;
+    while(temp>0){
+        sum = sum + factorial(currentDigit);
+        temp = temp / 10;
+        currentDigit = temp % 10;
+    }
+    if(sum == num)
     {
         return 1;
     }
     return 0;
 }
 
-int isPrime(int x)
+int isPrime(int num)
 {
-    if(x < 1) return 0;
-    for(int i = 2 ; i < x ; i++)
+    if(num < 1) return 0;
+    for(int i = 2 ; i < num ; i++)
     {
-        if(x % i == 0) return 0;
+        if(num % i == 0) return 0;
     }
     return 1;
 }

@@ -12,6 +12,6 @@ number. For Example: 145 is strong number
 1! + 4! + 5! = 145
 */
 int isStrong(int);
-int factorial(int f);
-int numOfNumInX(int x);
-int powe(int x, int y);
+int factorial(int);
+int numOfNumInX(int);
+int powe(int, int);
