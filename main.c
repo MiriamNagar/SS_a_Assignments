@@ -3,7 +3,7 @@
 
 
 int main(){
-    int mat[10][10] ={};
+    int mat[10][10] ={0};
     char current_action = 'D';
     int flag = 1;
 

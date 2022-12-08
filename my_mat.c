@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "my_mat.h"
 
-int dist[10][10] = {};
+int dist[10][10] = {0};
 
 void build_matrix(int mat[10][10])
 {
