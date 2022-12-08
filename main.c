@@ -33,4 +33,5 @@ int main(){
             flag = 0; //than finish loop, and thus the program
         }
     }
+    return 0;
 }
