@@ -3,13 +3,13 @@
 
 
 int main(){
-    int mat[10][10] ={0};
-    char current_action = 'D';
-    int flag = 1;
+    int mat[10][10] ={0}; //creating matrix to use
+    char current_action = 'D'; //in case theres no input than finish program
+    int flag = 1; 
 
 
-    while(flag){
-        scanf("%c", &current_action);
+    while(flag){ 
+        scanf("%c", &current_action); //get char to know which operation to do
         if(current_action == 'A')
         {
             build_matrix(mat);
@@ -17,16 +17,20 @@ int main(){
         }
         if(current_action == 'B')
         {
-            path_exists();
+            int i=0, j=0; 
+            scanf("%d%d", &i, &j); //scans values to check path from i to j
+            path_exists(i, j); //checks for path
 
         }
         if(current_action == 'C')
         {
-            shortest_path();
+            int i=0, j=0;
+            scanf("%d%d", &i, &j); //scans values to check path from i to j
+            shortest_path(i, j);
         }
         if(current_action == 'D')
         {
-            flag = 0;
+            flag = 0; //than finish loop, and thus the program
         }
     }
 }
