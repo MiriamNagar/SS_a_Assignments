@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "my_mat.h"
 
-int dist[10][10];
+int dist[10][10] = {};
 
 void build_matrix(int mat[10][10])
 {
@@ -44,7 +44,7 @@ void Floyd_marshall(int mat[10][10])
 
 void path_exists()
 {
-    int i, j;
+    int i=0, j=0;
     scanf("%d%d", &i, &j);
     if(dist[i][j] > 0)
     {
@@ -59,7 +59,7 @@ void path_exists()
 
 void shortest_path()
 {
-    int i, j;
+    int i=0, j=0;
     scanf("%d%d", &i, &j);
     if(i == j)
     {
