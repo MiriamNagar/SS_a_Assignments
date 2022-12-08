@@ -26,27 +26,13 @@ void copy_matrix(int arr[10][10])
     }
 }
 
-void print_matrix(int mat[10][10])
-{
-    int i, j;
-    for (i = 0; i < 10; i++)
-    {
-        for (j = 0; j < 10; j++)
-        {
-            printf("%d\t", mat[i][j]);
-        }
-        printf("\n");
-    }
-}
-
 void Floyd_marshall(int mat[10][10])
 {
     copy_matrix(mat);
     int k = 0, m =0 , v=0; 
     for (k = 0; k < 10; k++) {  
-        for (m = 0; m < 10; m++) { // Pick all vertices as source one by one
-            for (v = 0; v < 10; v++) { // Pick all vertices as destination for the above picked source
-                // If vertex k is on the shortest path from i to j, then update the value of dist[i][j]
+        for (m = 0; m < 10; m++) {
+            for (v = 0; v < 10; v++) {
                 if (dist[m][k] + dist[k][v] < dist[m][v] && dist[m][k] + dist[k][v] != 0 && m!=v)
                     dist[m][v] = dist[m][k] + dist[k][v];
                 if (dist[m][v] == 0 && dist[m][k]!=0 && dist[k][v]!=0 && m!=v)
@@ -56,7 +42,7 @@ void Floyd_marshall(int mat[10][10])
     }
 }
 
-void path_exists()//int mat[10][10])
+void path_exists()
 {
     int i, j;
     scanf("%d%d", &i, &j);
@@ -71,7 +57,7 @@ void path_exists()//int mat[10][10])
 }
 
 
-void shortest_path()//int mat[10][10])
+void shortest_path()
 {
     int i, j;
     scanf("%d%d", &i, &j);

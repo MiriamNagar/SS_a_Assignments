@@ -13,18 +13,16 @@ int main(){
         if(current_action == 'A')
         {
             build_matrix(mat);
-            // print_matrix(mat);
 
         }
         if(current_action == 'B')
         {
-            path_exists();//mat);
-            // print_matrix(mat);
+            path_exists();
 
         }
         if(current_action == 'C')
         {
-            shortest_path();//mat);
+            shortest_path();
         }
         if(current_action == 'D')
         {
